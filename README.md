@@ -1,19 +1,21 @@
-# 🪟 Detector de Ventanas basado en Geometría
+# Detector de Ventanas usando Geometría y Homografía
 
-Este proyecto detecta automáticamente una **ventana negra** en una pared de ladrillo a partir de un video. Utiliza únicamente **técnicas geométricas y morfológicas**, sin redes neuronales ni modelos preentrenados.
+Este proyecto implementa un sistema que detecta automáticamente una **ventana negra** en una pared de ladrillos, usando **técnicas geométricas y morfológicas**, sin redes neuronales. El sistema también **rectifica la vista de la ventana** usando homografía para facilitar la medición precisa.
 
-## 📹 ¿Cómo funciona?
+---
 
-1. Detecta ladrillos por su color naranja (espacio HSV)
-2. Usa el tamaño real del ladrillo (33 × 23 cm) como **referencia de escala**
-3. Detecta la ventana negra por umbral de color y morfología
-4. Calcula:
-   - Ancho en metros
-   - Alto en metros
-   - Área en m²
-5. Muestra todo sobre el video en tiempo real
+## ¿Qué hace?
 
-## 🔧 Requisitos
+- Detecta **ladrillos naranjas** en una pared para usar como referencia de escala
+- Detecta **ventanas negras** aplicando máscaras de color y operaciones morfológicas
+- Calcula dimensiones reales de la ventana en **metros**
+- Aplica una **homografía** para obtener una vista frontal de la ventana
+- Muestra dos ventanas:
+  - `Detección en video` con cuadros y medidas
+  - `Ventana rectificada (Homografía)` con la ventana frontal
+
+---
+##  Requisitos
 
 ```bash
 pip install -r requirements.txt
